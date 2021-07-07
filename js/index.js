@@ -59,3 +59,51 @@ function send_suggestion() {
 function toggleNav() {
   document.querySelector(".links").classList.toggle("hidden")
 }
+
+
+
+var check_backend = function (){
+  $.ajax({
+    type: "GET",
+    url: "https://xk6rprajpm.herokuapp.com/",
+    success: (data) => {
+      console.log(data)
+      $(".offline").hide()
+      $(".online").show()
+    },
+    error: (error) => {
+      console.log(error)
+      $(".offline").show()
+      $(".online").hide()
+    }
+  })
+}
+
+setInterval(function(){
+  check_backend();
+}, 5000)
+
+
+
+
+$(document).ready(function(){
+  check_backend();
+
+
+
+  // the function to add the links to all the bot links in the page
+  document.querySelectorAll('.chtsm').forEach(
+    (item) => {
+      var username = item.parentNode.parentNode.children[2].innerHTML;
+      console.log(username)
+      item.innerHTML = `<a class="chtsm-a" href="/docs#${username}">Click here to see more...</a>`
+    }
+  )
+  // a func to add link to all usernames
+  document.querySelectorAll(".username").forEach(
+    (item) => {
+      item.href = `https://telegram.me/${item.innerHTML.replace("@", '')}`
+    }
+  )
+
+})
