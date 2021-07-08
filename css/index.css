@@ -63,10 +63,13 @@ body {
 }
 
 .nav .logo {
-  font-size: 1.6em;
+  font-size: 1em;
   padding: .3em 2em;
 
   user-select: none;
+}
+.nav .logo img {
+  width: 3em;
 }
 
 .nav .links {
@@ -260,7 +263,7 @@ section:nth-child(2) > main > article {
   background-color: #f44;
   color: #fff;
 
-  white-space: break-word;
+  white-space: normal;
 }
 a.a, a.a:visited, *:link{
   color: #000;
@@ -342,6 +345,8 @@ a.a, a.a:visited, *:link{
   color: #000;
   z-index: 0;
   transition: .3s;
+  transform: skew(10deg);
+  box-shadow: inset 0px 0px 40px #0003;
 }
 .listitem .title {
   text-transform: uppercase;
@@ -354,13 +359,13 @@ a.a, a.a:visited, *:link{
 .listitem .desc {
   padding: .2em 1em;
 }
-.listitem .chtsm-a {
+.listitem .chtsm-a, .chtsmg a {
   font-size: .82em;
   color: var(--nav-bg);
   font-family: monospace;
   opacity: .5;
 }
-.listitem .username {
+.listitem .username, .usernamed {
   border-top: 1px solid #0006;
   padding: 1em 1em;
   color: #f4f;
@@ -368,7 +373,8 @@ a.a, a.a:visited, *:link{
 }
 .listitem:hover {
   border-radius: 2em;
-  box-shadow: 0 0 50px #0005;
+  box-shadow: 0 0 50px #0ff;
+  transform: scale(1.05) rotateY(0deg);
 }
 
 

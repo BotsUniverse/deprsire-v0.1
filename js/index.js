@@ -10,7 +10,7 @@ function typeWhoAreWe(){
       clearInterval(new_interval);
     }
     var c = whoAreWeText.slice(whoAreWeElem.innerHTML.length, whoAreWeText.length)[0]
-    console.log("Interval", c)
+    
     if (c === undefined) return
     whoAreWeElem.innerHTML += c;
   }, 500)
@@ -49,8 +49,13 @@ function send_suggestion() {
       suggestion: sugg
     },
     success: (data) => {
-      console.log(data)
-    }
+      document.querySelectorAll('[type="text"]').forEach(
+        (inp) => {
+          inp.value = ""
+        }
+        )
+        alert("Your Suggestions were sent!");
+      }
   })
 }
 
@@ -67,12 +72,12 @@ var check_backend = function (){
     type: "GET",
     url: "https://xk6rprajpm.herokuapp.com/",
     success: (data) => {
-      console.log(data)
+      
       $(".offline").hide()
       $(".online").show()
     },
     error: (error) => {
-      console.log(error)
+      
       $(".offline").show()
       $(".online").hide()
     }
@@ -95,7 +100,7 @@ $(document).ready(function(){
   document.querySelectorAll('.chtsm').forEach(
     (item) => {
       var username = item.parentNode.parentNode.children[2].innerHTML;
-      console.log(username)
+      
       item.innerHTML = `<a class="chtsm-a" href="/docs#${username}">Click here to see more...</a>`
     }
   )
