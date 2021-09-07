@@ -1,2 +1,2 @@
-# botsuniverse.github.io
-A simple webpage, which can surive without the backend that is running at heroku.
+# Depricated Site V0.1
+The first site that is replaced by the current site.
